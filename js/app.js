@@ -102,7 +102,14 @@ function getWinner(){
       turn = winner
     }
   })
+  // if (!checkForTie()) {
+  //   winner = 'T'
+  // }
 }
+
+// function checkForTie() {
+//   board.some(element => element === null)
+// }
      
     
     
