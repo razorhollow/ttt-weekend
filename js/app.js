@@ -36,6 +36,7 @@ function init() {
   turn = 1
   winner = null
   render()
+  console.clear() //for debugging
 }
 
 function render() {
@@ -61,7 +62,7 @@ function renderMessage(){
   } else if(winner === 'T'){
     messageEl.textContent = "It's a Tie!"
   } else {
-    messageEl.textContent = `Congratulations Player ${whosTurn()}! You Won!`
+    messageEl.textContent = `Congratulations Player ${winner}! You Won!`
   }
 }
 
@@ -81,8 +82,8 @@ function handleClick(evt) {
   } else if (winner) {
     return
   } else {
-    getWinner()
     board[sqIdx] = turn
+    getWinner()
     nextPlayer()
     render()
   }
@@ -91,17 +92,20 @@ function handleClick(evt) {
 function getWinner(){
   winningCombos.forEach(function(combo){
     let total = 0
-    combo.forEach(idx => total += board[idx])
-    total = Math.abs(total)
-    if(total === 3) {
-      winner = board[combo[0]]
+    // console.log('test array: ', combo)
+    combo.forEach(function(idx){
+      total += board[idx]
+    })
+    if(Math.abs(total) === 3) {
+      console.log(total, combo, board[combo[0]])
+      winner = whosTurn()
+      turn = winner
     }
-    console.log(total)
+  })
+}
      
     
     
-  })
-}
 
 
 
