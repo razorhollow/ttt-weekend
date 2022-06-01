@@ -17,10 +17,11 @@ let board, turn, winner
 
 const squareEls = document.querySelectorAll('div')
 const messageEl = document.querySelector('#message')
+const gameBoard = document.querySelector('.board')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-
+gameBoard.addEventListener('click', handleClick)
 
 /*-------------------------------- Functions --------------------------------*/
 init ()
@@ -66,6 +67,20 @@ function whosTurn(){
 function nextPlayer() {
   turn *= -1
 }
+
+function handleClick(evt) {
+  let id = evt.target.id
+  let sqIdx = id[2]
+  if (board[sqIdx]) {
+    return
+  } else if (winner) {
+    return
+  } else {
+    board[sqIdx] = turn
+  }
+  nextPlayer()
+  render()
+}
   
 
 
@@ -75,27 +90,6 @@ function nextPlayer() {
 
   // a) In a constant called `winningCombos` define the eight possible winning 
   //    combinations as an array of arrays.
-
-// Step 6 - Handle a player clicking a square with a `handleClick` function
-
-  // a) Create a function called `handleClick`. It will have an `evt` parameter.
-
-  // b) Attach an event listener to the game board. On the `'click'` event, it 
-  //    should call the `handleClick` function you created in 6a.
-
-  // c) Obtain the index of the square that was clicked by "extracting" the 
-  //    index from an `id` assigned to the element in the HTML. Assign this to 
-  //    a constant called `sqIdx`.
-
-  // d) If the `board` has a value at the `sqIdx`, immediately `return` because 
-  //    that square is already taken. Also, if `winner` is not `null`
-  //    immediately `return` because the game is over.
-
-  // e) Update the `board` array at the `sqIdx` with the current value of
-  //    `turn`.
-
-  // f) Change the turn by multiplying `turn` by `-1` (this flips a `1` to
-  //    `-1`, and vice-versa).
 
   // g) Set the `winner` variable if there's a winner by calling a new 
   //    function: `getWinner`.
