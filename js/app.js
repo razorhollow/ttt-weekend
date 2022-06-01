@@ -1,12 +1,14 @@
 /*-------------------------------- Constants --------------------------------*/
 
 const winningCombos = [
-  [1,1,1, null, null, null, null, null, null],
-  [null, null, null, 1, 1, 1, null, null, null],
-  [null, null, null, null, null, null, 1, 1, 1],
-  [1, null, null, 1, null, null, 1, null, null],
-  [null, 1, null, null, 1, null, null, 1, null],
-  [null, null, 1, null, null, 1, null, null, 1]
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
 ]
 
 /*---------------------------- Variables (state) ----------------------------*/
@@ -18,10 +20,13 @@ let board, turn, winner
 const squareEls = document.querySelectorAll('div')
 const messageEl = document.querySelector('#message')
 const gameBoard = document.querySelector('.board')
+const resetBtn = document.querySelector('#reset-btn')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
 gameBoard.addEventListener('click', handleClick)
+resetBtn.addEventListener('click', init)
+
 
 /*-------------------------------- Functions --------------------------------*/
 init ()
@@ -76,20 +81,31 @@ function handleClick(evt) {
   } else if (winner) {
     return
   } else {
+    getWinner()
     board[sqIdx] = turn
+    nextPlayer()
+    render()
   }
-  nextPlayer()
-  render()
 }
   
+function getWinner(){
+  winningCombos.forEach(function(combo){
+    let total = 0
+    combo.forEach(idx => total += board[idx])
+    total = Math.abs(total)
+    if(total === 3) {
+      winner = board[combo[0]]
+    }
+    console.log(total)
+     
+    
+    
+  })
+}
 
 
 
 
-// Step 5 - Define the required constants
-
-  // a) In a constant called `winningCombos` define the eight possible winning 
-  //    combinations as an array of arrays.
 
   // g) Set the `winner` variable if there's a winner by calling a new 
   //    function: `getWinner`.

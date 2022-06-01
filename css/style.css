@@ -23,3 +23,7 @@ div {
   vertical-align: middle;
 }
 /* Rock Salt google font */
+
+#reset-btn {
+  margin: 50px;
+}
