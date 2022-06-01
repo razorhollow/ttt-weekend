@@ -1,6 +1,13 @@
 /*-------------------------------- Constants --------------------------------*/
 
-
+const winningCombos = [
+  [1,1,1, null, null, null, null, null, null],
+  [null, null, null, 1, 1, 1, null, null, null],
+  [null, null, null, null, null, null, 1, 1, 1],
+  [1, null, null, 1, null, null, 1, null, null],
+  [null, 1, null, null, 1, null, null, 1, null],
+  [null, null, 1, null, null, 1, null, null, 1]
+]
 
 /*---------------------------- Variables (state) ----------------------------*/
 
@@ -19,7 +26,7 @@ const messageEl = document.querySelector('#message')
 init ()
 
 function init() {
-  board = [1, null, null, -1, null, null, null, null, null]
+  board = [null, null, null, null, null, null, null, null, null]
   turn = 1
   winner = null
   render()
@@ -56,23 +63,13 @@ function whosTurn(){
   return turn === 1? "X" : "O"
 }
 
+function nextPlayer() {
+  turn *= -1
+}
+  
 
-// Step 4 - The state of the game should be rendered to the user
 
-  // a) Create a function called `render`.
 
-  // b) Loop over `board` and for each element:
-  //    - Use the current index of the iteration to access the corresponding 
-  //      square in the `squareEls` array.
-  //    - Style that square however you wish, dependent on the value contained 
-  //      in the current cell being iterated over (`-1`, `1`, or `null`).
-
-  // c) Render a message based on the current game state:
-  //    - If winner has a value of `null` (meaning the game is still in
-  //      progress), render whose turn it is.
-  //    - If `winner` is equal to `'T'` (tie), render a tie message.
-  //    - Otherwise, render a congratulatory message to the player that has won.
-    
 
 // Step 5 - Define the required constants
 
