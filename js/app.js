@@ -8,7 +8,7 @@ let board, turn, winner
 
 /*------------------------ Cached Element References ------------------------*/
 
-const squareEls = document.querySelector('.board')
+const squareEls = document.querySelectorAll('div')
 const messageEl = document.querySelector('#message')
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -19,15 +19,43 @@ const messageEl = document.querySelector('#message')
 init ()
 
 function init() {
-  board = [null, null, null, null, null, null, null, null, null]
+  board = [1, null, null, -1, null, null, null, null, null]
   turn = 1
   winner = null
   render()
 }
 
 function render() {
-  
+  renderMessage()
+  renderSquare()
 }
+
+function renderSquare() {
+  for(let i = 0; i < board.length; i++){
+  if (board[i] === 1) {
+    squareEls[i].textContent = 'x'
+  } else if (board[i] === -1) {
+    squareEls[i].textContent = 'o'
+  } else { 
+    squareEls[i].textContent = ''
+  }
+}
+}
+
+function renderMessage(){
+  if (winner === null) {
+    messageEl.textContent = `It's Player ${whosTurn()}'s Turn!`
+  } else if(winner === 'T'){
+    messageEl.textContent = "It's a Tie!"
+  } else {
+    messageEl.textContent = `Congratulations Player ${whosTurn()}! You Won!`
+  }
+}
+
+function whosTurn(){
+  return turn === 1? "X" : "O"
+}
+
 
 // Step 4 - The state of the game should be rendered to the user
 
