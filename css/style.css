@@ -1,13 +1,3 @@
-/* CSS HEX */
---cultured: #f8f9faff;
---cultured-2: #e9ecefff;
---gainsboro: #dee2e6ff;
---light-gray: #ced4daff;
---cadet-blue-crayola: #adb5bdff;
---sonic-silver: #6c757dff;
---davys-grey: #495057ff;
---onyx: #343a40ff;
---eerie-black: #212529ff;
 
 html {
   box-sizing: border-box
@@ -33,7 +23,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #212529ff;
+  background: linear-gradient(#212529ff, #495057ff);
   color: #f8f9faff;
 }
 
@@ -77,4 +67,6 @@ button {
   background-color: inherit;
   font-size: 3em;
 }
+
+
 
