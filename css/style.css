@@ -28,20 +28,21 @@ body {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 3.5em;
 }
 
 h2 {
   margin-bottom: 50px;
-  font-size: 2em;
+  font-size: 1.5em;
   color: #dee2e6ff;
 }
 
 section.board {
   display: grid;
-  grid-template-rows: repeat(3, 10vmin);
-  grid-template-columns: repeat(3, 10vmin);
+  grid-template-rows: repeat(3, 20vmin);
+  grid-template-columns: repeat(3, 20vmin);
   grid-gap: 0vmin;
+  /* width: 80%; */
 }
 
 div {
@@ -51,7 +52,7 @@ div {
   border: 3px solid #f8f9faff;
   border-radius: 10px;
   margin: 6px;
-  font-size: 7vmin;
+  font-size: 8vmin;
   font-family: 'Rock Salt', cursive;
 }
 
@@ -65,8 +66,11 @@ button {
   width: clamp(35px, 30vw, 400px);
   color: inherit;
   background-color: inherit;
-  font-size: 3em;
+  font-size: 2em;
 }
+
+
+
 
 
 
