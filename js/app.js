@@ -99,16 +99,16 @@ function getWinner(){
     if(Math.abs(total) === 3) {
       console.log(total, combo, board[combo[0]])
       winner = whosTurn()
+    } else {
+      let fullBoard = board.findIndex(space => space === null)
+      if (fullBoard === -1) {
+        winner = 'T'
+
     }
-  })
-  let fullBoard = board.findIndex(space => space === null)
-  if (fullBoard === -1) {
-    winner = 'T'
+}})
   }
-  // if (!checkForTie()) {
-  //   winner = 'T'
-  // }
-}
+  
+
 
 
 
